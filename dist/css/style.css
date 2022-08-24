@@ -29,15 +29,22 @@
 
 /** ---- Main Page Structure ---- **/
 html {
-    height: 100%;
+    height: 100vh;
+    overflow: hidden;
 }
 
 body {
-    width: 400%;
+    height: 100vh;
+    /* overflow-y: hidden; */
+
+}
+
+#body {
+    width: 400vw;
     height: 100%;
     min-height: 500px;
     display: flex;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .page {
@@ -47,6 +54,7 @@ body {
     border: black 1px dotted;
     overflow-y: scroll;
     overflow-x: scroll;
+    position: relative;
 }
 
 /** ---- Loading Screen ---- **/
@@ -75,7 +83,7 @@ body {
 /** ---- Navigation Bar ---- **/
 
 #nav-bar {
-    width: 100%;
+    width: 100vw;
     min-width: 1200px;
     height: 120px;
     min-height: 120px;
@@ -110,7 +118,7 @@ body {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    opacity: 0.5;
+    opacity: 0.8;
     font-size: 1.2em;
     font-weight: 500;
     border-radius: 10px;
@@ -198,6 +206,7 @@ body {
     z-index: -1;
     justify-self: center;
     align-self: center;
+    touch-action: pan-y;
 }
 
 .textbox {
@@ -481,7 +490,6 @@ body {
 @media screen and (max-width: 1450px) {
 
     .page {
-        overflow-x: scroll;
 
     }
 
@@ -501,17 +509,29 @@ body {
     }
 }
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
+    html {
+        height: 100vh;
+        width: 400vw;
+        overflow: hidden;
+    }
     body {
-        
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+    #body {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
     }
 
     .page {
         min-width: 0;
-        width: 100%;
+        width: 100vw;
         overflow-y: scroll;
         overflow-x: hidden;
-
+        
     }
 
     .page-content {
@@ -521,6 +541,7 @@ body {
         margin-right: 0%;
         height: auto;
         padding-bottom: 30px;
+        overflow: hidden;
     }
 
     .project-section {
@@ -545,6 +566,160 @@ body {
         overflow-y: hidden;
         width: 100%;
         max-width: 600px;
+    }
+
+    .project-title, .project-description, .tool-tag-list{
+        grid-column: 1;
+        grid-row: auto;
+        height: auto;
+        max-height: max-content;
+        overflow-y: hidden;
+
+    }
+
+    #projects-page-down-arrow {
+        display: none;
+    }
+
+    .canvas {
+        height: 620px;
+        grid-column: 1;
+        grid-row:1;
+    }
+
+    .textbox, .textbox-text, .canvas{
+        width: 100%;
+        max-height: 2000px;
+        min-width: 0;
+        overflow-y: hidden;
+    }
+   
+    .textbox {
+        grid-row: 2;
+        height: auto;
+
+    }
+
+    .textbox-text {
+        font-size: 1.7em;
+        height: auto;
+    }
+
+    #green-bar {
+        width: 30%;
+    }
+
+    #grey-bar {
+        width: 40%;
+    }
+
+    #nav-bar {
+    height: 10vh;
+    width: 100vw;
+    min-width: 0;
+    }
+
+    #nav-buttons {
+        
+        width: 100%;
+        height: 300px;
+        flex-direction: column;
+        background-color: var(--primary);
+        top: 100%;
+        left: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    .nav-button{
+        width: 100%;
+        border-bottom: white 1px solid;
+        padding: 0;
+        justify-content: center;
+        font-size: 1.3em;
+        height: 100%;
+    }
+    #menu-button {
+        display: flex;
+        filter: invert(1);
+    }
+
+    
+
+
+} */
+
+@media screen and (max-width: 600px) {
+    html {
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+    }
+    body {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+    #body {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .page {
+        min-width: 0;
+        width: 100vw;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .page-content {
+        grid-template-columns: 100%;
+        width: 100%;
+        margin-left: 0%;
+        margin-right: 0%;
+        height: auto;
+        padding-bottom: 30px;
+        overflow: hidden;
+    }
+
+    .canvas {
+        width: 100%;
+        max-height: 400px;
+        touch-action: pan-y;
+
+    }
+
+    .textbox-header {
+        font-size: 4em;
+    }
+
+    .project-section {
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+        width: 100%;
+        margin-left: 0%;
+        margin-right: 0%;
+        height: auto;
+    }
+
+    .project-section img {
+        width: 100%;
+        max-width: 600px;
+        border-radius: 0;
+    }
+
+    .project-link {
+        grid-column: 1;
+        grid-row: 4;
+        height: auto;
+        max-height: max-content;
+        overflow-y: hidden;
+        width: 100%;
+        max-width: 600px;
+        border-radius: 0px;
     }
 
     .project-title, .project-description, .tool-tag-list{
@@ -606,6 +781,8 @@ body {
     position: fixed;
     top: 5%;
     left: 0; */
+    height: 10vh;
+    width: 100vw;
     min-width: 0;
     }
 

@@ -16,6 +16,7 @@ const loadingScreen = document.getElementById('loading-screen');
 let mobileView = null;
 let scrollAction = null;
 let highlightAction = null;
+let pages = document.querySelectorAll('.page');
 let currentPage = 0;
 
 //nav button event listeners
@@ -49,37 +50,52 @@ function pageScroll (pagenum) {
 
     currentPage = pagenum;
 
-    if(scrollAction) {
-        clearInterval(scrollAction);
-    }
+    if(mobileView) {
 
-    let scrollPosition = window.scrollX;
-    // console.log('scrollPosition ' + scrollPosition);
+        pages.forEach((e) => {e.hidden = true});
+        pages[pagenum].hidden = false;
+        console.log('show page ' + pagenum);
 
-    const windowWidth = window.innerWidth > 1200 || window.innerWidth <= 600 ? window.innerWidth:1200;
-    let scrollTarget = windowWidth * pagenum;
-    // console.log('scrollTarget ' + scrollTarget);
-
-    let scrollDirection = (scrollTarget - scrollPosition) / Math.abs(scrollPosition - scrollTarget);
-    // console.log('scrollDirection ' + scrollDirection);
-
-    let scrollRate = scrollDirection * Math.abs(scrollTarget - scrollPosition) * 0.05;
-
-    // console.log('scrollRate ' + scrollRate);
-
-    for(const link of linkButtons) {
-        link.style.opacity = '0.8';
-    }
-    linkButtons[currentPage].style.opacity = '1';
-
-    scrollAction = setInterval( () => {
-        window.scrollBy(scrollRate, 0);
-        scrollPosition = window.scrollX;
-        if(Math.abs(scrollTarget - scrollPosition) < 100 ) {
-            clearInterval(scrollAction);
-            window.scrollTo(scrollTarget,0);
+        for(const link of linkButtons) {
+            link.style.opacity = '0.8';
         }
-    }, 10);
+        linkButtons[currentPage].style.opacity = '1';
+
+    } else {
+
+        if(scrollAction) {
+            clearInterval(scrollAction);
+        }
+    
+        let scrollPosition = window.scrollX;
+        console.log('scrollPosition ' + scrollPosition);
+    
+        const windowWidth = window.innerWidth > 1200 || window.innerWidth <= 600 ? window.innerWidth:1200;
+        let scrollTarget = windowWidth * pagenum;
+        console.log('scrollTarget ' + scrollTarget);
+    
+        let scrollDirection = (scrollTarget - scrollPosition) / Math.abs(scrollPosition - scrollTarget);
+        console.log('scrollDirection ' + scrollDirection);
+    
+        let scrollRate = scrollDirection * Math.abs(scrollTarget - scrollPosition) * 0.05;
+    
+        // console.log('scrollRate ' + scrollRate);
+    
+        for(const link of linkButtons) {
+            link.style.opacity = '0.8';
+        }
+        linkButtons[currentPage].style.opacity = '1';
+    
+        scrollAction = setInterval( () => {
+            window.scrollBy(scrollRate, 0);
+            scrollPosition = window.scrollX;
+            if(Math.abs(scrollTarget - scrollPosition) < 100 ) {
+                clearInterval(scrollAction);
+                window.scrollTo(scrollTarget,0);
+            }
+        }, 10);
+
+    }
 
     if(mobileView) {
         toggleMobileMenu();
@@ -136,6 +152,7 @@ function changeLayoutConfig (layout) {
         navMenu.style.transition = 'none';
         console.log('changing to desktop');
         highlightPageTitle('revert');
+        pages.forEach((e) => {e.hidden = false});
 
 
     } else if (layout === 'mobile') {
@@ -144,6 +161,8 @@ function changeLayoutConfig (layout) {
         navMenu.style.height = '0px';
         menuButton.scrollTop = 32;
         navMenu.style.transition = '0.2s';
+        pages.forEach((e) => {e.hidden = true});
+        pages[currentPage].hidden = false;
 
     }
 }
