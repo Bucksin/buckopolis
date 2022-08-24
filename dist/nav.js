@@ -13,6 +13,7 @@ const linkButtons = document.querySelectorAll('.nav-button');
 const navMenu = document.getElementById('nav-buttons');
 const menuButton = document.getElementById('menu-button');
 const loadingScreen = document.getElementById('loading-screen');
+const canvases = document.querySelectorAll('.canvas');
 let mobileView = null;
 let scrollAction = null;
 let highlightAction = null;
@@ -104,7 +105,8 @@ function pageScroll (pagenum) {
 }
 
 
-
+// scrolls down from canvas elements
+canvases.forEach((e) => { e.addEventListener('click', () => {window.scrollTo(0, 100); console.log('scrolll')}) });
 
 //page resizing function
 window.addEventListener('resize', windowSizeCheck);
