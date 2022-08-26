@@ -104,10 +104,6 @@ function pageScroll (pagenum) {
 
 }
 
-
-// scrolls down from canvas elements
-canvases.forEach((e) => { e.addEventListener('click', () => {window.scrollTo(0, 100); console.log('scrolll')}) });
-
 //page resizing function
 window.addEventListener('resize', windowSizeCheck);
 
@@ -216,15 +212,9 @@ function initializeNavigation () {
 window.addEventListener('load', initializeNavigation);
 
 
-//initialize page 1
-function initailizePage1 () {
 
-}
-
-function toggleScrollArrowIndicator (input) {
-    if(input === 'show') {
-
-    } else if (input === 'hide') {
-
-    }
-}
+// function toggleScrollArrowIndicator (input) {
+//     if(input === 'show') {
+//     } else if (input === 'hide') {
+//     }
+// }
