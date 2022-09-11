@@ -71,7 +71,7 @@ function pageScroll (pagenum) {
         let scrollPosition = window.scrollX;
         console.log('scrollPosition ' + scrollPosition);
     
-        const windowWidth = window.innerWidth > 1200 || window.innerWidth <= 600 ? window.innerWidth:1200;
+        const windowWidth = window.innerWidth > 1200 || window.innerWidth <= 768 ? window.innerWidth:1200;
         let scrollTarget = windowWidth * pagenum;
         console.log('scrollTarget ' + scrollTarget);
     
@@ -108,14 +108,14 @@ function pageScroll (pagenum) {
 window.addEventListener('resize', windowSizeCheck);
 
 function windowSizeCheck () {
-    const windowWidth = window.innerWidth > 1200 || window.innerWidth <= 600 ? window.innerWidth:1200;
+    const windowWidth = window.innerWidth > 1200 || window.innerWidth <= 768 ? window.innerWidth:1200;
     window.scrollTo(currentPage * windowWidth, 0);
     highlightPageTitle('revert');
     console.log(mobileView);
-    if(windowWidth <= 600 && !mobileView) {
+    if(windowWidth <= 768 && !mobileView) {
         changeLayoutConfig('mobile');
     }
-    if(windowWidth >= 600 && mobileView) {
+    if(windowWidth > 768 && mobileView) {
         changeLayoutConfig('desktop');
     }
 }
@@ -198,7 +198,7 @@ function toggleMobileMenu () {
 
 //initialize navigation elements
 function initializeNavigation () {
-    mobileView = window.innerWidth <= 600 ? true : false;
+    mobileView = window.innerWidth <= 768 ? true : false;
     if(mobileView) {changeLayoutConfig('mobile')};
     if(!mobileView) {changeLayoutConfig('desktop')};
 
