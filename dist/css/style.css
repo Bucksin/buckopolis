@@ -568,7 +568,7 @@ body {
     }
 }
 
-@media screen and (max-width: 768px) and (orientation: portrait) {
+@media screen and (max-width: 768px) and (min-height: 500px) {
     html {
         height: 100vh;
         width: 100vw;
@@ -739,7 +739,7 @@ body {
 }
 
 
-@media screen and (max-width: 1000px) and (orientation: landscape) {
+@media screen and (max-height: 500px) and (max-width: 1000px)  {
     
 #rotate-screen {
     display: flex;
