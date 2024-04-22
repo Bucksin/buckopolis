@@ -25,6 +25,7 @@
 
     --primary: #50948e;
     --secondary: #2f547e;
+    --tertiary: #4d605f;
 }
 
 /** ---- Main Page Structure ---- **/
@@ -354,17 +355,17 @@ body {
     height: 60px;
     color: white;
     text-decoration: none;
-    background-color: var(--primary);
-    border-left: var(--primary) 1px solid;
-    border-right: var(--primary) 1px solid;
+    background-color: var(--tertiary);
+    border-left: var(--tertiary) 1px solid;
+    border-right: var(--tertiary) 1px solid;
     padding: 20px 10px;
     font-size: 1em;
     /* grid-column: 1/2;
     grid-row: 4/5; */
     justify-self: flex-start;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    border-bottom: var(--primary) 1px solid;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom: var(--tertiary) 1px solid;
 
 }
 
@@ -380,8 +381,8 @@ body {
     border-top: var(--primary) 1px solid;
     border-left: var(--primary) 1px solid;
     border-right: var(--primary) 1px solid;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .project-title {
@@ -518,6 +519,36 @@ body {
 .socket-tag {
     background-color: rgb(230, 230, 230);
     color: rgb(10, 10, 10);
+}
+
+.redux-tag {
+    background-color: rgb(230, 230, 230);
+    color: rgb(119, 53, 178);
+}
+
+.mui-tag {
+    background-color: rgb(230, 230, 230);
+    color: rgb(31, 53, 141);
+}
+
+.auth0-tag {
+    background-color: rgb(40, 40, 40);
+    color: rgb(235, 235, 235);
+}
+
+.jwt-tag {
+    background-color: rgb(40, 40, 40);
+    color: rgb(235, 235, 235);
+}
+
+.aspnet-tag {
+    background-color: rgb(40, 40, 40);
+    color: rgb(235, 235, 235);
+}
+
+.gpt-tag {
+    background-color: rgb(40, 40, 40);
+    color: rgb(235, 235, 235);
 }
 
 /** ---- Scroll-related components ---- **/
