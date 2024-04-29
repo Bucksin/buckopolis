@@ -17,15 +17,9 @@
 }
 
 :root {
-    /* --primary: #9dcecb; */
-    /* --secondary: #E5EDEC; */
-
-    /* --primary: #4395f3;
-    --secondary: #a3ffe3; */
-
-    --primary: #50948e;
-    --secondary: #2f547e;
-    --tertiary: #4d605f;
+    --primary: #cdcfcf;
+    --secondary: #274b49;
+    --tertiary: #274b49;
 }
 
 /** ---- Main Page Structure ---- **/
